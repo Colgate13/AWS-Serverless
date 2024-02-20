@@ -1,0 +1,39 @@
+{
+    "FunctionName": "hello-cli",
+    "FunctionArn": "arn:aws:lambda:us-east-1:671529718246:function:hello-cli:1",
+    "Runtime": "nodejs18.x",
+    "Role": "arn:aws:iam::671529718246:role/lambda-exemplo",
+    "Handler": "index.handler",
+    "CodeSize": 371,
+    "Description": "",
+    "Timeout": 3,
+    "MemorySize": 128,
+    "LastModified": "2024-02-01T00:14:08.000+0000",
+    "CodeSha256": "XMBH/5jOxfgINoJMbiwYJTPvpn/TVDc0wuZ5JVb2PXY=",
+    "Version": "1",
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "a37766fd-d550-4a55-80fc-1854f12b7e77",
+    "State": "Pending",
+    "StateReason": "The function is being created.",
+    "StateReasonCode": "Creating",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:a993d90ea43647b82f490a45d7ddd96b557b916a30128d9dcab5f4972911ec0f"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/hello-cli"
+    }
+}
