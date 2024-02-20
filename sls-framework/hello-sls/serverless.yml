@@ -1,0 +1,16 @@
+org: colgate13
+app: hello-sls
+service: hello-sls
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  hello:
+    handler: index.handler
+    events:
+      - http:
+          path: hello
+          method: get
