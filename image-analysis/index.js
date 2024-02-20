@@ -1,8 +1,6 @@
 "use strict";
 
-const {
-  promises: { readFile },
-} = require("fs");
+const { get } = require("axios");
 
 class Handler {
   constructor({ rekognitionService, translatorService }) {
@@ -64,10 +62,26 @@ class Handler {
     return finalText.join("\n");
   }
 
+  async getImageBuffer(imageUrl) {
+    const response = await get(imageUrl, {
+      responseType: "arraybuffer",
+    });
+
+    return Buffer.from(response.data, "base64");
+  }
 
   async main(event) {
     try {
-      const imgBuffer = await readFile("./images/cat1.jpeg");
+      const { imageUrl } = event.queryStringParameters;
+
+      if (!imageUrl) {
+        return {
+          statusCode: 400,
+          body: "Bad Request - imageUrl is required",
+        };
+      }
+
+      const imgBuffer = await this.getImageBuffer(imageUrl);
 
       const {
         names,
