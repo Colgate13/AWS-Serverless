@@ -1,0 +1,25 @@
+org: colgate13
+app: image-analysis-app
+service: image-analysis
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "rekognition:DetectLabels"
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "translate:TranslateText"
+      Resource: "*"
+
+functions:
+  img-analysis:
+    handler: index.main
+    events:
+      - http:
+          path: analyze
+          method: get
